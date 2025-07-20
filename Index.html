@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Govindaa Arts</title>
+    <link rel="shortcut icon" href="Images/GA LOGO PNG.png" type="image/x-icon">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+    <section id="home">
+        <nav id="nav-desktop">
+            <div class="nav-logo"><img src="./Images/GA LOGO PNG.png" alt=""></div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#service">Services</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="container home-box">
+            <img class="big-logo" src="./Images/GA LOGO jpeg.jpeg" alt="Logo image">
+            <img class="writtenlogo" src="./Images/written.png" alt="">
+            <p>Unleash the wow factor in your space! 15+ years of artistry bring walls to life with exquisite textures, murals, and paintings.</p>
+        </div>
+    </section>
+
+    <section id="service">
+        <div class="container">
+            <p>Our</p>
+            <h2 class="heading-one">Services</h2>
+            <div class="service-box">
+                <div class="service-card one"><span class="service-title">Mural</span><div class="service-description">A mural is a large-scale artwork painted or applied directly onto walls, ceilings, or other surfaces. <button>More</button></div></div>
+                <div class="service-card two"><span class="service-title">Texture</span><div class="service-description">Texture in art refers to the perceived surface quality, adding depth and dimension.<button>More</button></div></div>
+                <div class="service-card three"><span class="service-title">Paintings</span><div class="service-description">A painting is a creative expression using colors and techniques on various surfaces.<button>More</button></div></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery">
+        <div class="container"><p>Explore</p>
+            <h2 class="heading-one">The Gallery</h2>
+            <div class="gallery-box">
+                <div class="image-container"><img src="./Images/project-1.png"></div>
+                <div class="image-container"><img src="./Images/project-2.png"></div>
+                <div class="image-container"><img src="./Images/project-3.png"></div>
+                <div class="image-container"><img src="./Images/project-1.png"></div>
+                <div class="image-container"><img src="./Images/project-2.png"></div>
+                <div class="image-container"><img src="./Images/project-3.png"></div>
+                <div class="image-container"><img src="./Images/project-1.png"></div>
+                <div class="image-container"><img src="./Images/project-2.png"></div>
+                <div class="image-container"><img src="./Images/project-3.png"></div>
+            </div>
+            <a href="./gallery.html" class="view-more-btn" target="_blank">View More</a>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2 class="heading-one">Get In Touch</h2>
+            <div class="contact-box">
+                <div class="contact-card">
+                    <div class="colored-half">
+                        <h3>Contact Information</h3>
+                        <p>+91 98931 45244 <br>+91 96445 11212</p>
+                        <p>Govindjani@gmail.com</p>
+                        <p>Vijay Nagar, Indore <br> Madhya Pradesh, 452010</p>
+                    </div>
+                    <div class="glass-half">
+                        <form id="contactForm">
+                            <input type="text" name="name" placeholder="Your Name" required>
+                            <input type="email" name="email" placeholder="Your Email" required>
+                            <textarea name="message" placeholder="Your Message" required></textarea>
+                            <button type="submit">Send</button>
+                        </form>
+                        
+                        <script>
+                            document.getElementById("contactForm").addEventListener("submit", function(event) {
+                                event.preventDefault();
+                                  
+                                let formData = {
+                                    name: document.querySelector('[name="name"]').value,
+                                    email: document.querySelector('[name="email"]').value,
+                                    message: document.querySelector('[name="message"]').value
+                                };
+                                
+                                fetch("https://script.google.com/macros/s/AKfycbwU8NnX7xw5ijf57Aqy70HgfEUQljqPYjdWJsGpH5bGGm9xB5tWSPA9JpbccoDN4KtlIA/exec", {
+                                    method: "POST",
+                                    body: JSON.stringify(formData),
+                                    headers: { "Content-Type": "application/json" }
+                                })
+                                .then(response => response.text())
+                                .then(data => {
+                                    alert("Message sent successfully!");
+                                    document.getElementById("contactForm").reset();
+                                })
+                                .catch(error => alert("Error sending message."));
+                            });
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+
+    </footer>
+
+</body>
+</html>
